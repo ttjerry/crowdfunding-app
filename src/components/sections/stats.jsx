@@ -19,7 +19,7 @@ const statistics = [
 
 function Stats() {
   return (
-    <div className="flex flex-col gap-10 p-10 px-12 rounded-xl bg-white w-5/6 lg:w-6/12">
+    <div className="flex flex-col gap-10 p-10 px-12 rounded-xl bg-white w-[90%] lg:w-6/12">
       <div className="flex justify-center items-center lg:items-start self-center lg:self-auto flex-col lg:flex-row gap-10 ">
         {statistics.map((element) => (
           <React.Fragment>

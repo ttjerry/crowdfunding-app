@@ -29,7 +29,7 @@ const someText = [
 
 function About() {
   return (
-    <div className="flex flex-col gap-6  w-5/6 lg:w-6/12 mb-10 p-10 lg:px-12 bg-white rounded-xl">
+    <div className="flex flex-col gap-6  w-[90%] lg:w-6/12 mb-10 p-10 lg:px-12 bg-white rounded-xl">
         {/* About the project */}
       <section className="flex flex-col gap-8">
         <h1 className="font-bold text-[17px] lg:text-xl">About this project</h1>
