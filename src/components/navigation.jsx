@@ -1,16 +1,35 @@
+import { useState } from "react";
+
 function Nav() {
+  const [isOpen , setisOpen] = useState(false)
+
+  function toggleMenu(){
+    setisOpen(!isOpen);
+  }
   return (
-    <div className="h-[40vh] w-full bg-[url('/images/image-hero-desktop.jpg')]">
-      <nav className="flex flex-row items-center justify-between p-10 px-24">
+    <div className="lg:h-[40vh] h-[30vh] w-full bg-[url('/images/image-hero-mobile.jpg')] lg:bg-[url('/images/image-hero-desktop.jpg')]">
+      <nav className="flex flex-row items-center justify-between p-10 lg:px-24 z-50">
         <div>
-            <img src="/images/logo.svg" alt="image" />
+          <img src="/images/logo.svg" alt="image" />
         </div>
         <ul>
-          <li className="flex flex-row gap-12">
-            <a href="#" className="text-white">About</a>
-            <a href="#" className="text-white">Discover</a>
-            <a href="#" className="text-white">Get Started</a>
+          {/* mobile menu contents */}
+          <li className={`flex opacity-0 lg:opacity-100 lg:relative absolute lg:top-0 -top-80
+             left-[10%] lg:bg-inherit bg-white rounded-lg lg:rounded-none lg:flex-row flex-col gap-3 lg:gap-12 lg:w-fit w-5/6 p-10 lg:p-0 z-50 shadow-2xl ${isOpen? 'opacity-100 flex z-20 top-24':false } ease-in-out duration-1000`}>
+            <a href="#" className="lg:text-white lg:border-b-0 pb-2 lg:pb-0 border-b-2">
+              About
+            </a>
+            <a href="#" className="lg:text-white lg:border-b-0 pb-2 lg:pb-0 border-b-2">
+              Discover
+            </a>
+            <a href="#" className="lg:text-white lg:border-b-0 pb-2 lg:pb-0 border-b-2">
+              Get Started
+            </a>
           </li>
+          {/* hamburger button */}
+          <button className="flex lg:hidden" onClick={toggleMenu}>
+            <img src="/images/icon-hamburger.svg" alt="gerr" />
+          </button>
         </ul>
       </nav>
     </div>
