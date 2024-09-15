@@ -1,6 +1,6 @@
 function Top() {
   return (
-    <div className="flex flex-col items-center relative -top-16 -mb-16 lg:justify-center  gap-4 bg-white w-[90%] lg:w-3/6 rounded-xl pb-10 ">
+    <div className="flex flex-col items-center relative -top-24 -mb-24 lg:justify-center  gap-4 bg-white w-[90%] lg:w-3/6 rounded-xl pb-10 ">
       <img
         src="/images/logo-mastercraft.svg"
         className="w-12 relative -top-6 self-center"

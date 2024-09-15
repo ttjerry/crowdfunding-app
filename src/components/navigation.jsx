@@ -7,7 +7,7 @@ function Nav() {
     setisOpen(!isOpen);
   }
   return (
-    <div className="lg:h-[40vh] h-[30vh] w-full bg-[url('/images/image-hero-mobile.jpg')] lg:bg-[url('/images/image-hero-desktop.jpg')]">
+    <div className="lg:h-[40vh] h-[40vh] w-full bg-[url('/images/image-hero-mobile.jpg')] lg:bg-[url('/images/image-hero-desktop.jpg')] bg-contain bg-no-repeat">
       <nav className="flex flex-row items-center justify-between p-10 lg:px-24 z-50">
         <div>
           <img src="/images/logo.svg" alt="image" />
@@ -28,7 +28,8 @@ function Nav() {
           </li>
           {/* hamburger button */}
           <button className="flex lg:hidden" onClick={toggleMenu}>
-            <img src="/images/icon-hamburger.svg" alt="gerr" />
+            {isOpen?<img src="/images/icon-close-menu.svg" alt="ger" />:<img src="/images/icon-hamburger.svg" alt="gerri" />}
+            
           </button>
         </ul>
       </nav>
