@@ -17,26 +17,35 @@ const statistics = [
   },
 ];
 
+const style = {
+  content: "",
+  height: "3px",
+  width: "20px",
+  backgroundColor: "red",
+};
+
 function Stats() {
   return (
     <div className="flex flex-col gap-10 p-10 px-12 rounded-xl bg-white w-[90%] lg:w-6/12">
-      <div className="flex justify-center items-center lg:items-start self-center lg:self-auto flex-col lg:flex-row gap-10 ">
+      <div className="flex justify-center items-center lg:items-start self-center lg:self-auto flex-col lg:flex-row gap-10">
         {statistics.map((element) => (
           <React.Fragment>
             <div
-              className={`lg:w-5/6  lg:pr-4 lg:border-r-2${
-                element.line ? " lg:border-r-slate-300" : false
+              className={`lg:w-5/6 lg:pr-4 ${
+                element.line
+                  ? " lg:border-r-2 after:w-[75%] after:-bottom-3 after:left-[10%] relative after:absolute after:h-[3px] after:rounded-full after:bg-gray-200 lg:after:fixed lg:border-r-slate-300"
+                  : false
               }`}
             >
               <p className="font-bold text-3xl">{element.figure}</p>
-              <p className="text-gray-400 text-sm">{element.label}</p>
+              <p className="text-gray-400 text-sm ">{element.label}</p>
             </div>
           </React.Fragment>
         ))}
-        </div>
-        <div className="w-full h-2 rounded-full bg-gray-300 self-center">
-          <span className="flex rounded-full items-center justify-center h-full w-4/5 bg-[#3DB5AB]"></span>
-        </div>
+      </div>
+      <div className="w-full h-2 rounded-full bg-gray-300 self-center">
+        <span className="flex rounded-full items-center justify-center h-full w-4/5 bg-[#3DB5AB]"></span>
+      </div>
     </div>
   );
 }
