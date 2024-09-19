@@ -44,9 +44,9 @@ function Nav() {
               delay: .2
             }}
             className={`flex opacity-0 lg:opacity-100 lg:relative absolute lg:top-0 -top-80
-             left-[10%] lg:bg-inherit bg-white rounded-lg lg:rounded-none lg:flex-row flex-col gap-3 lg:gap-12 lg:w-fit w-5/6 p-10 lg:p-0 shadow-2xl ${
-               isOpen ? "delay-200 opacity-100 flex top-24" : false
-             }`}
+             left-[10%] lg:bg-inherit bg-white rounded-lg lg:rounded-none lg:flex-row flex-col gap-3 lg:gap-12 lg:w-fit w-5/6 p-10 lg:p-0 shadow-2xl ml-10 z-50 ${
+               isOpen ? "delay-200 opacity-100 flex top-20" : false
+             } -top-52`}
           >
             <a
               href="#"
