@@ -1,3 +1,6 @@
+import SelectModal from "../modal/select";
+import Complete from "../modal/modalSuccess";
+
 const info = [
   {
     tag: "Bamboo Stand",
@@ -29,9 +32,12 @@ const someText = [
 
 function About() {
   return (
-    <div className="flex flex-col gap-6  w-[90%] lg:w-6/12 mb-10 p-10 lg:px-12 bg-white rounded-xl">
+    <div className="flex flex-col gap-6  w-[90%] lg:w-6/12 mb-10 p-10 lg:px-12 bg-white shadow-2xl rounded-xl">
         {/* About the project */}
+        <SelectModal/>
+        <Complete/>
       <section className="flex flex-col gap-8">
+      
         <h1 className="font-bold text-[17px] lg:text-xl">About this project</h1>
         <h3 className="flex flex-col text-gray-400 gap-6 leading-6 text-[14px]">
           <span>{someText[0]}</span>
@@ -80,7 +86,7 @@ function About() {
                   className={`p-3 px-7 text-[13px] bg-[#3DB5AB] rounded-full text-white ${
                     me.soldOut ? "bg-gray-500 opacity-60" : false
                   }`}
-                  disabled={me.soldOut ? "disabled" : false}
+                  disabled={me.soldOut ? "z-0 disabled" : false}
                 >
                   {me.soldOut ? "Out of stock" : "Select Reward"}
                 </button>
