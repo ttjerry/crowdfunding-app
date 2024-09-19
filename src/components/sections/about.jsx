@@ -32,7 +32,7 @@ const someText = [
 
 function About() {
   return (
-    <div className="flex flex-col gap-6  w-[90%] lg:w-6/12 mb-10 p-10 lg:px-12 bg-white shadow-2xl rounded-xl">
+    <div className="flex flex-col gap-6  w-[90%] lg:w-6/12 mb-10 p-6 lg:px-12 bg-white shadow-2xl rounded-xl">
         {/* About the project */}
         <SelectModal/>
         <Complete/>
@@ -48,7 +48,7 @@ function About() {
       <div className="flex flex-col gap-4">
         {info.map((me) => {
           return (
-            <div className=" border-[1.5px] flex flex-col gap-6 rounded-lg p-5 lg:p-10">
+            <div className=" border-[1.5px] flex flex-col gap-6 rounded-lg p-4 lg:p-10">
               <div className="flex flex-col lg:flex-row justify-between">
                 <span
                   className={`font-bold ${
