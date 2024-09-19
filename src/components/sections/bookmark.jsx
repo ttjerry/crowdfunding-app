@@ -11,8 +11,7 @@ function Top() {
       initial={{rotate:'0deg'}}
       animate={{rotate:'360deg'}}
       transition={{
-        duration:1,
-        delay: .2
+        duration:1.2
       }}
         src="/images/logo-mastercraft.svg"
         className="w-12 relative -top-6 self-center"
