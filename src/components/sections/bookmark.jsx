@@ -1,6 +1,11 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import SelectModal from "../modal/select.jsx";
 function Top() {
+  const [open, setOpen] = useState(false);
+  function OpenModal() {
+    setOpen(!open);
+  }
   return (
     <motion.div
       initial={{ top: "0" }}
@@ -8,7 +13,7 @@ function Top() {
       transition={{ duration: 1 }}
       className="flex flex-col items-center relative -top-24 -mb-24 lg:justify-center  gap-4 bg-white w-[90%] lg:w-3/6 rounded-xl pb-10 shadow-md "
     >
-      {/* <SelectModal /> */}
+      <SelectModal open={open} setOpen={setOpen} />
       <motion.img
         initial={{ rotate: "0deg" }}
         animate={{ rotate: "360deg" }}
@@ -28,7 +33,10 @@ function Top() {
         </h2>
       </div>
       <span className="flex mt-4 flex-row gap-4 lg:gap-0 lg:w-full lg:px-14 justify-between">
-        <button className="rounded-full bg-[#3DB5AB] text-white px-6 w-44">
+        <button
+          className="rounded-full bg-[#3DB5AB] text-white px-6 w-44"
+          onClick={OpenModal}
+        >
           Back this project
         </button>
 
