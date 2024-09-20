@@ -30,15 +30,15 @@ function Stats() {
     <motion.div
       initial={{ marginTop: "6rem" }}
       animate={{ marginTop: "0" }}
-      transition={{ 
+      transition={{
         duration: 1,
-        delay: .2
-       }}
+        delay: 0.2,
+      }}
       className="flex flex-col gap-10 p-10 px-12 rounded-xl shadow-2xl bg-white w-[90%] lg:w-6/12"
     >
       <div className="flex justify-center items-center lg:items-start self-center lg:self-auto flex-col lg:flex-row gap-10">
-        {statistics.map((element) => (
-          <React.Fragment>
+        {statistics.map((element, index) => (
+          <React.Fragment key={index}>
             <div
               className={`lg:w-5/6 lg:pr-4 ${
                 element.line

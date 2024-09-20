@@ -38,12 +38,18 @@ const inform = [
   },
 ];
 
-function SelectModal() {
+function SelectModal({ setOpens }) {
+  const [selected, isSelected] = useState(1);
+
+  const handleEvent = () => {};
   return (
-    <div className="hidden justify-center left-0 h-screen top-0 fixed w-full bg-[rgba(0,0,0,.4)]">
+    // open && (
+
+    // )
+    <div className="flex justify-center left-0 h-screen top-0 fixed w-full bg-[rgba(0,0,0,.4)]">
       <div className="flex flex-col scale-90 h-screen justify-center self-center rounded-lg bg-white p-8 w-3/5  z-50">
         <span className="flex flex-col gap-3">
-          <button className="self-end">
+          <button className="self-end" onClick={handleEvent}>
             <img src="/images/icon-close-modal.svg" alt="closee" />
           </button>
           <div className="flex flex-col gap-4">
@@ -54,12 +60,23 @@ function SelectModal() {
             </h2>
           </div>
         </span>
-          
+
         <div className="flex flex-col gap-4 h-4/5 overflow-auto max-h-96">
           {inform.map((element) => {
             return (
-              <React.Fragment>
-                <Comps tag={element.tag} pledge={element.pledge} left={element.left} figure={element.figure} text={element.text} ids={element.idNum} />
+              <React.Fragment key={element.idNum}>
+                <Comps
+                  tag={element.tag}
+                  pledge={element.pledge}
+                  left={element.left}
+                  figure={element.figure}
+                  text={element.text}
+                  ids={element.idNum}
+                  isSelected={(() => {
+                    if (selected === element.idNum) return true;
+                    return false;
+                  })()}
+                />
               </React.Fragment>
             );
           })}

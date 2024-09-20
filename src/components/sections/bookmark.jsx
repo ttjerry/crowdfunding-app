@@ -1,18 +1,20 @@
 import { motion } from "framer-motion";
+import SelectModal from "../modal/select.jsx";
 function Top() {
   return (
     <motion.div
-    initial={{top:'0'}}
-    animate={{top:'-6rem'}}
-    transition={{duration: 1}}
-     className="flex flex-col items-center relative -top-24 -mb-24 lg:justify-center  gap-4 bg-white w-[90%] lg:w-3/6 rounded-xl pb-10 shadow-md "
-     >
+      initial={{ top: "0" }}
+      animate={{ top: "-6rem" }}
+      transition={{ duration: 1 }}
+      className="flex flex-col items-center relative -top-24 -mb-24 lg:justify-center  gap-4 bg-white w-[90%] lg:w-3/6 rounded-xl pb-10 shadow-md "
+    >
+      {/* <SelectModal /> */}
       <motion.img
-      initial={{rotate:'0deg'}}
-      animate={{rotate:'360deg'}}
-      transition={{
-        duration:1.2
-      }}
+        initial={{ rotate: "0deg" }}
+        animate={{ rotate: "360deg" }}
+        transition={{
+          duration: 1.2,
+        }}
         src="/images/logo-mastercraft.svg"
         className="w-12 relative -top-6 self-center"
         alt="thisis"
@@ -26,7 +28,6 @@ function Top() {
         </h2>
       </div>
       <span className="flex mt-4 flex-row gap-4 lg:gap-0 lg:w-full lg:px-14 justify-between">
-
         <button className="rounded-full bg-[#3DB5AB] text-white px-6 w-44">
           Back this project
         </button>
@@ -37,7 +38,6 @@ function Top() {
           </button>
           <h2 className="hidden lg:block">Bookmark</h2>
         </div>
-
       </span>
     </motion.div>
   );

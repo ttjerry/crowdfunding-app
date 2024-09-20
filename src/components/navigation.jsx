@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { easeInOut, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 function Nav() {
   const [isOpen, setisOpen] = useState(false);
@@ -27,7 +27,7 @@ function Nav() {
             transition={{
               duration: 1,
               ease: "easeInOut",
-              delay: .2
+              delay: 0.2,
             }}
             src="/images/logo.svg"
             alt="image"
@@ -41,7 +41,7 @@ function Nav() {
             transition={{
               duration: 1,
               ease: "easeInOut",
-              delay: .2
+              delay: 0.2,
             }}
             className={`flex opacity-0 lg:opacity-100 lg:relative absolute lg:top-0 -top-80
              left-[10%] lg:bg-inherit bg-white rounded-lg lg:rounded-none lg:flex-row flex-col gap-3 lg:gap-12 lg:w-fit w-5/6 p-10 lg:p-0 shadow-2xl ml-10 z-50 ${

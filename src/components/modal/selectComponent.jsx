@@ -1,19 +1,23 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
-function Comps({ tag, pledge, left, figure, text, ids }) {
-  const [selectedOptions, setSelectedOptions] = useState(false);
+function Comps({
+  tag,
+  pledge,
+  left,
+  figure,
+  text,
+  ids,
+  setSelected,
+  isSelected,
+}) {
+  const radioRef = useRef(null);
 
-  function changed() {
-    let radio = document.getElementsByName("scale");
-    for (let i = 0; i < radio.length; i++) {
-      const element = radio[i].checked&&radio[i].value==selectedOptions;
-      // console.log(element);
-      setSelectedOptions(element); 
-    }
+  function changed(e) {
+    setSelected(ids);
   }
 
   //loop through the array of radio buttons to find out which is being clicked
-  // console.log(change)
+  // console.log(change)s
 
   return (
     <div className="border-gray-300 w-auto max-h-72 rounded-lg p-2 py-6 border-2">
@@ -22,10 +26,10 @@ function Comps({ tag, pledge, left, figure, text, ids }) {
           <input
             type="radio"
             onChange={changed}
-            value={selectedOptions}
             className="accent-green-600"
-            name=" scale"
+            name="scale"
             id={ids}
+            ref={radioRef}
           />
           <span className="flex gap-4 px-6 justify-normal lg:flex-row">
             <h2 className="font-bold">{tag}</h2>
@@ -40,10 +44,9 @@ function Comps({ tag, pledge, left, figure, text, ids }) {
         </div>
       </div>
 
-      {selectedOptions ? (
+      {isSelected && (
         <div
-          className={`flex justify-between px-6 items-center py-3 flex-row border-t-2 mt-6`
-          }
+          className={`flex justify-between px-6 items-center py-3 flex-row border-t-2 mt-6`}
           key={ids}
         >
           <h2 className="text-gray-400">Enter your pledge</h2>
@@ -60,9 +63,6 @@ function Comps({ tag, pledge, left, figure, text, ids }) {
             </button>
           </div>
         </div>
-      ) : (
-        // setSelectedOptions()
-        false
       )}
     </div>
   );

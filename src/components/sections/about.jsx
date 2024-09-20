@@ -1,5 +1,6 @@
-import SelectModal from "../modal/select";
+// import SelectModal from "../modal/select";
 import Complete from "../modal/modalSuccess";
+import SelectModal from "../modal/select";
 
 const info = [
   {
@@ -33,11 +34,10 @@ const someText = [
 function About() {
   return (
     <div className="flex flex-col gap-6  w-[90%] lg:w-6/12 mb-10 p-6 lg:px-12 bg-white shadow-2xl rounded-xl">
-        {/* About the project */}
-        <SelectModal/>
-        <Complete/>
+      {/* About the project */}
+      <Complete />
+      <SelectModal />
       <section className="flex flex-col gap-8">
-      
         <h1 className="font-bold text-[17px] lg:text-xl">About this project</h1>
         <h3 className="flex flex-col text-gray-400 gap-6 leading-6 text-[14px]">
           <span>{someText[0]}</span>
@@ -46,9 +46,12 @@ function About() {
       </section>
       {/* components */}
       <div className="flex flex-col gap-4">
-        {info.map((me) => {
+        {info.map((me, index) => {
           return (
-            <div className=" border-[1.5px] flex flex-col gap-6 rounded-lg p-4 lg:p-10">
+            <div
+              key={index}
+              className=" border-[1.5px] flex flex-col gap-6 rounded-lg p-4 lg:p-10"
+            >
               <div className="flex flex-col lg:flex-row justify-between">
                 <span
                   className={`font-bold ${
