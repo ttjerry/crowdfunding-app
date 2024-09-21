@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Comps from "./selectComponent";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const inform = [
   {
@@ -41,68 +41,72 @@ const inform = [
 
 function SelectModal({ open, setOpen }) {
   const [selected, setSelected] = useState(null);
-
   const toggleOpen = () => {
-    setOpen(!open);
+    setTimeout(() => {
+      setOpen(!open);
+    }, 1000);
   };
   return (
-    open && (
-      <motion.div
-        initial={{ left: "-100vw" }}
-        animate={{ left: "0" }}
-        transition={{ duration: ".7" }}
-        className="flex z-50 justify-center left-0 h-screen top-0 fixed w-full bg-[rgba(0,0,0,.4)]"
-      >
+    <AnimatePresence>
+      {open && (
         <motion.div
-          initial={{ marginTop: "-500vh" }}
-          animate={{ marginTop: "0" }}
-          transition={{ duration: "1.5", ease: "easeInOut" }}
-          className="flex flex-col scale-90 lg:h-screen justify-center self-center rounded-lg bg-white p-8 lg:w-3/5  z-50"
+          initial={{ left: "-100vw" }}
+          animate={{ left: "0" }}
+          transition={{ duration: ".7" }}
+          className="flex z-50 justify-center left-0 h-screen top-0 fixed w-full bg-[rgba(0,0,0,.4)]"
         >
-          <span className="flex  lg:flex-col gap-3">
-            <button
-              className="self-start order-2 w-10 lg:w-0 mt-2 lg:mt-0  lg:self-end"
-              onClick={toggleOpen}
-            >
-              <img
-                src="/images/icon-close-modal.svg"
-                className="w-full"
-                alt="closee"
-              />
-            </button>
-            <div className="flex flex-col gap-4">
-              <h2 className="font-bold text-2xl">Back this project</h2>
-              <h2 className="text-gray-400 mb-2">
-                Want to support us in bringing Mastercraft Bamboo Monitor Riser
-                out in the world?
-              </h2>
-            </div>
-          </span>
+          <motion.div
+            initial={{ marginTop: "-500vh" }}
+            animate={{ marginTop: "0" }}
+            exit={{ marginTop: "-500vh" }}
+            transition={{ duration: "1.5", ease: "easeInOut" }}
+            className="flex flex-col scale-90 lg:h-screen justify-center self-center rounded-lg bg-white p-8 lg:w-3/5  z-50"
+          >
+            <span className="flex lg:flex-col gap-3">
+              <button
+                className="self-start order-2 w-10 lg:w-0 mt-2 lg:mt-0  lg:self-end"
+                onClick={toggleOpen}
+              >
+                <img
+                  src="/images/icon-close-modal.svg"
+                  className="w-full"
+                  alt="closee"
+                />
+              </button>
+              <div className="flex flex-col gap-4">
+                <h2 className="font-bold text-2xl">Back this project</h2>
+                <h2 className="text-gray-400 mb-2">
+                  Want to support us in bringing Mastercraft Bamboo Monitor
+                  Riser out in the world?
+                </h2>
+              </div>
+            </span>
 
-          <div className="flex flex-col gap-4 h-4/5 overflow-auto max-h-96">
-            {inform.map((element) => {
-              return (
-                <React.Fragment key={element.idNum}>
-                  <Comps
-                    tag={element.tag}
-                    pledge={element.pledge}
-                    left={element.left}
-                    figure={element.figure}
-                    text={element.text}
-                    ids={element.idNum}
-                    isSelected={(() => {
-                      if (selected === element.idNum) return true;
-                      return false;
-                    })()}
-                    setSelected={setSelected}
-                  />
-                </React.Fragment>
-              );
-            })}
-          </div>
+            <div className="flex flex-col gap-4 h-4/5 overflow-auto max-h-96">
+              {inform.map((element) => {
+                return (
+                  <React.Fragment key={element.idNum}>
+                    <Comps
+                      tag={element.tag}
+                      pledge={element.pledge}
+                      left={element.left}
+                      figure={element.figure}
+                      text={element.text}
+                      ids={element.idNum}
+                      isSelected={(() => {
+                        if (selected === element.idNum) return true;
+                        return false;
+                      })()}
+                      setSelected={setSelected}
+                    />
+                  </React.Fragment>
+                );
+              })}
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
-    )
+      )}
+    </AnimatePresence>
   );
 }
 
