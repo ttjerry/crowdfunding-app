@@ -38,7 +38,8 @@ function Comps({
         </div>
         <div className="flex px-6 float-end flex-col justify-end">
           <span className="self-end absolute top-0">
-            {figure} {left}
+            <span className="font-bold">{figure}</span>
+            <span>{left}</span>
           </span>
           <span className="pl-5">{text}</span>
         </div>

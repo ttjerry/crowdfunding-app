@@ -14,7 +14,7 @@ function Nav() {
       transition={{
         duration: 0.8,
       }}
-      className="overflow-x-hidden lg:h-[40vh] h-[40vh] relative w-full bg-[url('/images/image-hero-mobile.jpg')] lg:bg-[url('/images/image-hero-desktop.jpg')]  bg-contain lg:bg-cover bg-no-repeat"
+      className="overflow-x-hidden lg:h-[40vh] h-[40vh] relative w-full bg-[url('/images/image-hero-mobile.jpg')] lg:bg-[url('/images/image-hero-desktop.jpg')]  bg-cover bg-no-repeat"
     >
       <motion.nav
         className="flex flex-row items-center justify-between p-10 lg:px-24 z-20

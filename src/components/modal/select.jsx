@@ -42,9 +42,7 @@ const inform = [
 function SelectModal({ open, setOpen }) {
   const [selected, setSelected] = useState(null);
   const toggleOpen = () => {
-    setTimeout(() => {
-      setOpen(!open);
-    }, 1000);
+    setOpen(!open);
   };
   return (
     <AnimatePresence>
@@ -59,12 +57,12 @@ function SelectModal({ open, setOpen }) {
             initial={{ marginTop: "-500vh" }}
             animate={{ marginTop: "0" }}
             exit={{ marginTop: "-500vh" }}
-            transition={{ duration: "1.5", ease: "easeInOut" }}
-            className="flex flex-col scale-90 lg:h-screen justify-center self-center rounded-lg bg-white p-8 lg:w-3/5  z-50"
+            transition={{ duration: "1.3", ease: "easeInOut" }}
+            className={`h-5/6 flex flex-col scale-90 lg:h-screen overflow-auto  self-center rounded-lg bg-white p-8 lg:w-3/5  z-50`}
           >
             <span className="flex lg:flex-col gap-3">
               <button
-                className="self-start order-2 w-10 lg:w-0 mt-2 lg:mt-0  lg:self-end"
+                className="self-start order-2 w-10 lg:w-4 mt-2 lg:mt-0  lg:self-end"
                 onClick={toggleOpen}
               >
                 <img
@@ -73,7 +71,7 @@ function SelectModal({ open, setOpen }) {
                   alt="closee"
                 />
               </button>
-              <div className="flex flex-col gap-4">
+              <div className="flex lg:order-2 h-full flex-col gap-4">
                 <h2 className="font-bold text-2xl">Back this project</h2>
                 <h2 className="text-gray-400 mb-2">
                   Want to support us in bringing Mastercraft Bamboo Monitor
@@ -82,7 +80,7 @@ function SelectModal({ open, setOpen }) {
               </div>
             </span>
 
-            <div className="flex flex-col gap-4 h-4/5 overflow-auto max-h-96">
+            <div className="flex flex-col gap-4 h-4/5 max-h-96">
               {inform.map((element) => {
                 return (
                   <React.Fragment key={element.idNum}>

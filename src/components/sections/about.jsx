@@ -1,4 +1,4 @@
-// import SelectModal from "../modal/select";
+import { motion } from "framer-motion";
 import Complete from "../modal/modalSuccess";
 import SelectModal from "../modal/select";
 
@@ -33,7 +33,7 @@ const someText = [
 
 function About() {
   return (
-    <div className="flex flex-col gap-6  w-[90%] lg:w-6/12 mb-10 p-6 lg:px-12 bg-white shadow-2xl rounded-xl">
+    <motion.div className="flex flex-col gap-6  w-[90%] lg:w-6/12 mb-10 p-6 lg:px-12 bg-white shadow-2xl rounded-xl">
       {/* About the project */}
       <Complete />
       <SelectModal />
@@ -98,7 +98,7 @@ function About() {
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

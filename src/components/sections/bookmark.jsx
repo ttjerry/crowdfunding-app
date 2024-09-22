@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import SelectModal from "../modal/select.jsx";
+
 function Top() {
   const [open, setOpen] = useState(false);
   function OpenModal() {
