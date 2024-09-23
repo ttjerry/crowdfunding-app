@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import validation from "../../validation/validation";
+import Complete from "./modalSuccess";
 
 function Comps({
   tag,
@@ -10,6 +11,8 @@ function Comps({
   ids,
   isSelected,
   setSelected,
+  modale,
+  showModal,
 }) {
   const [error, handleError] = useState(false);
   const radioRef = useRef(null);
@@ -23,9 +26,15 @@ function Comps({
     validation(e.target.value, figure) ? handleError(true) : handleError(false);
   }
 
+  function showSuccess(e) {
+    showModal(true);
+    setSelected(false);
+  }
+
   //validation to make sure the value inputted isn't greater than the "figure"
   return (
-    <div className="border-gray-300 w-auto max-h-72 rounded-lg p-2 py-3 border-2">
+    <div className="border-gray-300 w-auto max-h-[100%] h-[90%] rounded-lg p-2 py-2 last:mb-24 border-2">
+      <Complete modale={modale} showModal={showModal} />
       <div className="flex flex-col gap-2 relative">
         <div className="flex lg:pl-0 pl-10 flex-row gap-2">
           <input
@@ -37,16 +46,18 @@ function Comps({
             ref={radioRef}
           />
           <span className="flex flex-col lg:gap-4 px-6 justify-normal lg:flex-row">
-            <h2 className="font-bold">{tag}</h2>
-            <h2 className="text-[#3DB5AB] font-semibold">{pledge}</h2>
+            <h2 className="font-bold text-[14px]">{tag}</h2>
+            <h2 className="text-[#3DB5AB] text-[14px] font-semibold">
+              {pledge}
+            </h2>
           </span>
         </div>
         <div className="flex px-6 float-end flex-col justify-end">
           <span className="self-end absolute top-0">
-            <span className="font-bold">{figure}</span>
-            <span>{left}</span>
+            <span className="font-bold text-[12px]">{figure}</span>
+            <span className="text-[12px]">{left}</span>
           </span>
-          <span className="pl-5">{text}</span>
+          <span className="pl-5 text-[13px]">{text}</span>
         </div>
       </div>
       {/* pledge input area */}
@@ -60,7 +71,7 @@ function Comps({
             <input
               placeholder="$"
               className={` 
-                ${error ? "border-red-700" : "border-gray-400"} 
+                ${error ? "border-red-700 border-[1px]" : "border-gray-400"} 
                 rounded-full border-[1px] w-5/12 lg:w-[50%] p-2 outline-none`}
               type="text"
               name="area"
@@ -69,6 +80,7 @@ function Comps({
             <button
               className="text-white lg:w-[50%] bg-[#3DB5AB] px-6 p-2 rounded-full text-[14px] disabled:opacity-55"
               disabled={error}
+              onClick={showSuccess}
             >
               Continue
             </button>

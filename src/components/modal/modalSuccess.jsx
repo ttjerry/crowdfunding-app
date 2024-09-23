@@ -1,16 +1,15 @@
 import { useState } from "react";
 import React from "react";
 
-function Complete() {
-  const [visible, isVisible] = useState(false);
+function Complete({ modale, showModal }) {
   function close() {
-    isVisible(!visible);
+    showModal(!modale);
   }
   return (
     <>
-      {visible ? (
-        <div className="flex justify-center items-center bg-[rgba(0,0,0,.6)] w-full h-screen fixed top-0 left-0">
-          <div className="flex justify-around items-center flex-col p-6 rounded-xl bg-white w-2/6 h-2/4">
+      {modale ? (
+        <div className="flex justify-center items-center bg-[rgba(0,0,0,.1)] w-full h-screen fixed top-0 z-50 left-0">
+          <div className="flex justify-around items-center flex-col p-6 rounded-xl bg-white w-4/6 h-2/5">
             <span>
               <img src="/images/icon-check.svg" alt="check" />
             </span>

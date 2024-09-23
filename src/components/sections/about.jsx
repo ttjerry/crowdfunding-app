@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Complete from "../modal/modalSuccess";
+// import Complete from "../modal/modalSuccess";
 import SelectModal from "../modal/ModalSelect";
 import Comps from "../modal/selectComponent";
 
@@ -45,7 +45,6 @@ function About() {
   return (
     <motion.div className="flex flex-col gap-6  w-[90%] lg:w-6/12 mb-10 p-6 lg:px-12 bg-white shadow-2xl rounded-xl">
       {/* About the project */}
-      <Complete />
       <SelectModal open={open} setOpen={setOpen} />
 
       <section className="flex flex-col gap-8">

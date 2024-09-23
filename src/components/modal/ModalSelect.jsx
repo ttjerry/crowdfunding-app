@@ -40,10 +40,18 @@ const inform = [
 ];
 
 function SelectModal({ open, setOpen }) {
+  //state variable for radio button
   const [selected, setSelected] = useState(null);
+  //modal succes state passing this state across to two components, selectComponent and modalSuccess
+  const [modale, showModal] = useState(false);
+  //function for select modal close button
   const toggleOpen = () => {
     setOpen(!open);
   };
+
+  //to close the select modal one the selection is successful
+  modale && setOpen(!open);
+
   return (
     <AnimatePresence>
       {open ? (
@@ -58,7 +66,7 @@ function SelectModal({ open, setOpen }) {
             animate={{ marginTop: "0" }}
             exit={{ marginTop: "-500vh" }}
             transition={{ duration: "1.3", ease: "easeInOut" }}
-            className={`h-[85%] w-11/12 flex flex-col overflow-auto  self-center rounded-lg bg-white p-8 lg:w-3/5  z-50`}
+            className={`h-[100%] max-h-[90%] w-11/12 flex flex-col overflow-auto py-4 self-center rounded-lg bg-white p-8 lg:w-3/5  z-50`}
           >
             <span className="flex lg:flex-col gap-3">
               <button
@@ -97,6 +105,8 @@ function SelectModal({ open, setOpen }) {
                         return false;
                       })()}
                       setSelected={setSelected}
+                      modale={modale}
+                      showModal={showModal}
                     />
                   </React.Fragment>
                 );
