@@ -11,14 +11,19 @@ function Comps({
   isSelected,
   setSelected,
 }) {
+  const [error, handleError] = useState(false);
   const radioRef = useRef(null);
 
   function changed(e) {
     setSelected(ids);
   }
 
-  //validation to make sure the value inputted isn't greater than the "figure"
+  // function to validate the input
+  function validate(e) {
+    validation(e.target.value, figure) ? handleError(true) : handleError(false);
+  }
 
+  //validation to make sure the value inputted isn't greater than the "figure"
   return (
     <div className="border-gray-300 w-auto max-h-72 rounded-lg p-2 py-3 border-2">
       <div className="flex flex-col gap-2 relative">
@@ -54,12 +59,17 @@ function Comps({
           <div className="flex flex-row lg:justify-end lg:gap-3 justify-evenly lg:w-4/12">
             <input
               placeholder="$"
-              className="rounded-full border-gray-400 border-[1px] w-5/12 lg:w-[50%] p-2"
+              className={` 
+                ${error ? "border-red-700" : "border-gray-400"} 
+                rounded-full border-[1px] w-5/12 lg:w-[50%] p-2 outline-none`}
               type="text"
-              name=""
-              id=""
+              name="area"
+              onChange={validate}
             />
-            <button className="text-white lg:w-[50%] bg-[#3DB5AB] px-6 p-2 rounded-full text-[14px]">
+            <button
+              className="text-white lg:w-[50%] bg-[#3DB5AB] px-6 p-2 rounded-full text-[14px] disabled:opacity-55"
+              disabled={error}
+            >
               Continue
             </button>
           </div>
