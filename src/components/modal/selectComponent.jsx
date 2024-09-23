@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import validation from "../../validation/validation";
 
 function Comps({
   tag,
@@ -16,8 +17,7 @@ function Comps({
     setSelected(ids);
   }
 
-  //loop through the array of radio buttons to find out which is being clicked
-  // console.log(change)s
+  //validation to make sure the value inputted isn't greater than the "figure"
 
   return (
     <div className="border-gray-300 w-auto max-h-72 rounded-lg p-2 py-3 border-2">
@@ -44,7 +44,7 @@ function Comps({
           <span className="pl-5">{text}</span>
         </div>
       </div>
-
+      {/* pledge input area */}
       {isSelected && (
         <div
           className={`flex justify-between px-6 gap-2 items-center lg:py-3 flex-col lg:flex-row border-t-2 lg:mt-2`}

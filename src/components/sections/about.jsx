@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import Complete from "../modal/modalSuccess";
-import SelectModal from "../modal/select";
+import SelectModal from "../modal/ModalSelect";
+import Comps from "../modal/selectComponent";
 
 const info = [
   {
@@ -9,6 +11,7 @@ const info = [
     text: "You get an ergonomic stand made of natural bamboo. Youve helped us launch our promotional campaign and youll be added to a special Backer member list.",
     figure: 101,
     soldOut: false,
+    id: 2,
   },
   {
     tag: "Black Edition Stand",
@@ -16,6 +19,7 @@ const info = [
     text: "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.",
     figure: 64,
     soldOut: false,
+    id: 3,
   },
   {
     tag: "Mahogany Special Edition",
@@ -23,6 +27,7 @@ const info = [
     text: " You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.",
     figure: 0,
     soldOut: true,
+    id: 4,
   },
 ];
 
@@ -32,11 +37,17 @@ const someText = [
 ];
 
 function About() {
+  const [open, setOpen] = useState(false);
+  function toggleOpen() {
+    setOpen(!open);
+    console.log(open);
+  }
   return (
     <motion.div className="flex flex-col gap-6  w-[90%] lg:w-6/12 mb-10 p-6 lg:px-12 bg-white shadow-2xl rounded-xl">
       {/* About the project */}
       <Complete />
-      <SelectModal />
+      <SelectModal open={open} setOpen={setOpen} />
+
       <section className="flex flex-col gap-8">
         <h1 className="font-bold text-[17px] lg:text-xl">About this project</h1>
         <h3 className="flex flex-col text-gray-400 gap-6 leading-6 text-[14px]">
@@ -90,6 +101,7 @@ function About() {
                     me.soldOut ? "bg-gray-500 opacity-60" : false
                   }`}
                   disabled={me.soldOut ? "z-0 disabled" : false}
+                  onClick={toggleOpen}
                 >
                   {me.soldOut ? "Out of stock" : "Select Reward"}
                 </button>

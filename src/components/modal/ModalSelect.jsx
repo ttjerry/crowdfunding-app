@@ -46,7 +46,7 @@ function SelectModal({ open, setOpen }) {
   };
   return (
     <AnimatePresence>
-      {open && (
+      {open ? (
         <motion.div
           initial={{ left: "-100vw" }}
           animate={{ left: "0" }}
@@ -84,6 +84,7 @@ function SelectModal({ open, setOpen }) {
               {inform.map((element) => {
                 return (
                   <React.Fragment key={element.idNum}>
+                    {/* components with radio and select buttons */}
                     <Comps
                       tag={element.tag}
                       pledge={element.pledge}
@@ -103,6 +104,8 @@ function SelectModal({ open, setOpen }) {
             </div>
           </motion.div>
         </motion.div>
+      ) : (
+        false
       )}
     </AnimatePresence>
   );
