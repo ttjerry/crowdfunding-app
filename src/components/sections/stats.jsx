@@ -42,7 +42,7 @@ function Stats() {
             <div
               className={`lg:w-5/6 lg:pr-4 ${
                 element.line
-                  ? " lg:border-r-2 after:w-[75%] after:-bottom-3 after:left-[10%] relative after:absolute after:h-[3px] after:rounded-full after:bg-gray-200 lg:after:fixed lg:border-r-slate-300"
+                  ? " lg:border-r-2 after:w-[75%] after:-bottom-3 after:left-[10%] relative after:absolute after:h-[3px] after:rounded-full after:bg-gray-200 lg:after:hidden lg:border-r-slate-300"
                   : false
               }`}
             >

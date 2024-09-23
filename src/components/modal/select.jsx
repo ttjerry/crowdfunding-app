@@ -58,7 +58,7 @@ function SelectModal({ open, setOpen }) {
             animate={{ marginTop: "0" }}
             exit={{ marginTop: "-500vh" }}
             transition={{ duration: "1.3", ease: "easeInOut" }}
-            className={`h-5/6 flex flex-col scale-90 lg:h-screen overflow-auto  self-center rounded-lg bg-white p-8 lg:w-3/5  z-50`}
+            className={`h-[85%] w-11/12 flex flex-col overflow-auto  self-center rounded-lg bg-white p-8 lg:w-3/5  z-50`}
           >
             <span className="flex lg:flex-col gap-3">
               <button
