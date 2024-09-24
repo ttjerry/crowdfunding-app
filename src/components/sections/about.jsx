@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-// import Complete from "../modal/modalSuccess";
+import Complete from "../modal/modalSuccess";
 import SelectModal from "../modal/ModalSelect";
-import Comps from "../modal/selectComponent";
+// import Comps from "../modal/selectComponent";
 
 const info = [
   {
@@ -37,16 +37,32 @@ const someText = [
 ];
 
 function About() {
+  //default state variable for modal select
   const [open, setOpen] = useState(false);
+  // default state variable for modal success
+  const [modal, setShowModal] = useState(false);
+  // toggle state variable of modal select
   function toggleOpen() {
     setOpen(!open);
-    console.log(open);
   }
+  // function showMe() {
+  //   setShowModal(!modal);
+  // }
   return (
     <motion.div className="flex flex-col gap-6  w-[90%] lg:w-6/12 mb-10 p-6 lg:px-12 bg-white shadow-2xl rounded-xl">
-      {/* About the project */}
-      <SelectModal open={open} setOpen={setOpen} />
-
+      <SelectModal
+        open={open}
+        setOpen={setOpen}
+        modal={modal}
+        showModal={setShowModal}
+      />
+      {/* modal success */}
+      <Complete
+        open={open}
+        setOpen={setOpen}
+        modal={modal}
+        showModal={setShowModal}
+      />
       <section className="flex flex-col gap-8">
         <h1 className="font-bold text-[17px] lg:text-xl">About this project</h1>
         <h3 className="flex flex-col text-gray-400 gap-6 leading-6 text-[14px]">

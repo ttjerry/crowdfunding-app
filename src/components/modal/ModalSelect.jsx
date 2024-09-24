@@ -39,18 +39,18 @@ const inform = [
   },
 ];
 
-function SelectModal({ open, setOpen }) {
+function SelectModal({ open, setOpen, modal, showModal }) {
   //state variable for radio button
   const [selected, setSelected] = useState(null);
-  //modal succes state passing this state across to two components, selectComponent and modalSuccess
-  const [modale, showModal] = useState(false);
+  //modal succes state passing this state across to two components, selectComponent and modalSuccess.
   //function for select modal close button
+
   const toggleOpen = () => {
     setOpen(!open);
   };
+  console.log(typeof showModal);
 
   //to close the select modal one the selection is successful
-  modale && setOpen(!open);
 
   return (
     <AnimatePresence>
@@ -58,14 +58,14 @@ function SelectModal({ open, setOpen }) {
         <motion.div
           initial={{ left: "-100vw" }}
           animate={{ left: "0" }}
-          transition={{ duration: ".7" }}
+          transition={{ duration: ".5" }}
           className="flex z-50 justify-center left-0 h-screen top-0 fixed w-full bg-[rgba(0,0,0,.4)]"
         >
           <motion.div
-            initial={{ marginTop: "-500vh" }}
+            initial={{ marginTop: "-300vh" }}
             animate={{ marginTop: "0" }}
-            exit={{ marginTop: "-500vh" }}
-            transition={{ duration: "1.3", ease: "easeInOut" }}
+            exit={{ marginTop: "-300vh" }}
+            transition={{ duration: "1.2", ease: "easeInOut" }}
             className={`h-[100%] max-h-[90%] w-11/12 flex flex-col overflow-auto py-4 self-center rounded-lg bg-white p-8 lg:w-3/5  z-50`}
           >
             <span className="flex lg:flex-col gap-3">
@@ -105,8 +105,12 @@ function SelectModal({ open, setOpen }) {
                         return false;
                       })()}
                       setSelected={setSelected}
-                      modale={modale}
-                      showModal={showModal}
+                      //state to handle visibility of the select component
+                      open={open}
+                      setOpen={setOpen}
+                      //state handling for success component render
+                      // modal={modal}
+                      // showModal={showModal}
                     />
                   </React.Fragment>
                 );
